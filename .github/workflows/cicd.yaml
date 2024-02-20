@@ -8,6 +8,7 @@ on:
       - "v*"
     paths:
       - "container/**"
+      - ".github/workflows/cicd.yml"
   # schedule:
   #   #        ┌───────────── minute (0 - 59)
   #   #        │  ┌───────────── hour (0 - 23)
@@ -48,8 +49,9 @@ jobs:
         with:
           image: antora-viewer
           tags: latest ${{ github.ref_name }}
-          dockerfiles: |
-            ./container/Containerfile
+          context: ./container
+          containerfiles: |
+            ./Containerfile
           build-args: |
             CREATED_AT=${{ env.datetime }}
             GITHUB_SHA=${{ github.sha }}
