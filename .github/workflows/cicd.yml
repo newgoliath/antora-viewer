@@ -51,7 +51,7 @@ jobs:
           tags: latest ${{ github.ref_name }}
           context: ./container
           containerfiles: |
-            ./Containerfile
+            ./container/Containerfile
           build-args: |
             CREATED_AT=${{ env.datetime }}
             GITHUB_SHA=${{ github.sha }}
