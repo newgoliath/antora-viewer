@@ -26,6 +26,8 @@ WORKDIR /antora
 
 EXPOSE 8080
 
+USER 1001
+
 ENTRYPOINT ["entrypoint.sh"]
 
 CMD ["npx", "http-server", "www", "-c-1", "-p", "8080"]
